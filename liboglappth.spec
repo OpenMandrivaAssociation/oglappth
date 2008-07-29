@@ -5,7 +5,7 @@
 Name: oglappth
 Summary: Libraries for the oglappth chemistry package
 Version: 0.96
-Release: %mkrel 1
+Release: %mkrel 3
 Source0: http://www.uku.fi/~thassine/projects/download/lib%{name}-%{version}.tar.gz
 URL: http://www.uku.fi/~thassine/ghemical
 License: GPLv2+
