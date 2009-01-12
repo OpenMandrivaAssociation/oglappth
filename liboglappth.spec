@@ -1,17 +1,19 @@
-%define	major 1
-%define	libname %mklibname oglappth %major
-%define develname %mklibname oglappth -d
+Name:			oglappth
+Version:		0.98
+Release:		%mkrel 1
 
-Name: oglappth
-Summary: Libraries for the oglappth chemistry package
-Version: 0.96
-Release: %mkrel 3
-Source0: http://www.uku.fi/~thassine/projects/download/lib%{name}-%{version}.tar.gz
-URL: http://www.uku.fi/~thassine/ghemical
-License: GPLv2+
-Group: Sciences/Chemistry
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires: mesaglut-devel
+%define major		1
+%define libname 	%mklibname oglappth %major
+%define develname	%mklibname oglappth -d
+
+Summary:	Libraries for the oglappth chemistry package
+License:	GPLv2+
+Group:		Sciences/Chemistry
+URL:		http://www.uku.fi/~thassine/ghemical
+Source0:	http://www.uku.fi/~thassine/projects/download/lib%{name}-%{version}.tar.gz
+
+BuildRequires:	mesaglut-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Library for creating portable OpenGL applications with easy-to-code scene 
@@ -51,8 +53,6 @@ rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
 %postun -n %{libname} -p /sbin/ldconfig
 %endif
 
