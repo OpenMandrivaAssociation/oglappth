@@ -1,6 +1,6 @@
 Name:			oglappth
 Version:		0.98
-Release:		%mkrel 1
+Release:		%mkrel 2
 
 %define major		2
 %define libname 	%mklibname oglappth %major
