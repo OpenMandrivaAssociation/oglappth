@@ -1,21 +1,20 @@
+%define releasedate	20111012
 Name:			oglappth
-Version:		0.98
-Release:		%mkrel 3
+Version:		1.0.0
+Release:		1
 
 %define major		2
 %define libname 	%mklibname oglappth %major
-%define oldlibname	%mklibname oglappth 1
 %define develname	%mklibname oglappth -d
 
 Summary:	Libraries for the oglappth chemistry package
 License:	GPLv2+
 Group:		Sciences/Chemistry
-URL:		http://www.uku.fi/~thassine/ghemical
-Source0:	http://www.uku.fi/~thassine/projects/download/lib%{name}-%{version}.tar.gz
+URL:		http://www.bioinformatics.org/ghemical/ghemical/index.html
+Source0:	http://www.bioinformatics.org/ghemical/download/release%{releasedate}/lib%{name}-%{version}.tar.gz
 
 BuildRequires:	mesagl-devel
 BuildRequires:	mesaglu-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 Library for creating portable OpenGL applications with easy-to-code scene 
@@ -24,8 +23,7 @@ setup and selection operations.
 %package -n %{libname}
 Summary:	Dynamic libraries from %{name}
 Group:		System/Libraries
-Provides:	%{name} = %{version}-%{release}
-Obsoletes:	%{oldlibname}
+Provides:	%{name} = %{EVRD}
 
 %description -n	%{libname}
 Dynamic libraries from %{name}.
@@ -34,7 +32,7 @@ Dynamic libraries from %{name}.
 Summary:	Header files and static libraries from %{name}
 Group:		Development/C
 Requires:	%{libname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n	%{develname}
 Libraries and includes files for developing programs based on %{name}.
@@ -48,27 +46,44 @@ Libraries and includes files for developing programs based on %{name}.
 %make LIBS="-lGL -lGLU"
 								
 %install
-rm -rf %{buildroot}
 %makeinstall
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
 %files -n %{libname}
-%doc AUTHORS ChangeLog
-%defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
+%doc AUTHORS ChangeLog
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 
+
+
+%changelog
+* Tue Dec 07 2010 Oden Eriksson <oeriksson@mandriva.com> 0.98-3mdv2011.0
++ Revision: 613171
+- the mass rebuild of 2010.1 packages
+
+* Mon Sep 14 2009 Thierry Vignaud <tv@mandriva.org> 0.98-2mdv2010.1
++ Revision: 440365
+- rebuild
+
+* Mon Jan 12 2009 Guillaume Bedot <littletux@mandriva.org> 0.98-1mdv2009.1
++ Revision: 328725
+- Name specfile correctly
+- Release 0.98
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+* Wed Mar 05 2008 Guillaume Bedot <littletux@mandriva.org> 0.96-1mdv2008.1
++ Revision: 180142
+- import oglappth
+
+
+* Wed Mar  5 2008 Guillaume Bedot <littletux@mandriva.org> 0.96-1mdv2008.1
+- First package of oglappth for contribs
