@@ -1,7 +1,7 @@
 %define releasedate	20111012
 Name:			oglappth
 Version:		1.0.0
-Release:		1
+Release:		2
 
 %define major		2
 %define libname 	%mklibname oglappth %major
@@ -13,8 +13,8 @@ Group:		Sciences/Chemistry
 URL:		http://www.bioinformatics.org/ghemical/ghemical/index.html
 Source0:	http://www.bioinformatics.org/ghemical/download/release%{releasedate}/lib%{name}-%{version}.tar.gz
 
-BuildRequires:	mesagl-devel
-BuildRequires:	mesaglu-devel
+BuildRequires:	pkgconfig(gl)
+BuildRequires:	pkgconfig(glu)
 
 %description
 Library for creating portable OpenGL applications with easy-to-code scene 
