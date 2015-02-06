@@ -1,7 +1,7 @@
 %define releasedate	20111012
 Name:			oglappth
 Version:		1.0.0
-Release:		2
+Release:		3
 
 %define major		2
 %define libname 	%mklibname oglappth %major
