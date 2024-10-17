@@ -10,7 +10,7 @@ Release:		3
 Summary:	Libraries for the oglappth chemistry package
 License:	GPLv2+
 Group:		Sciences/Chemistry
-URL:		http://www.bioinformatics.org/ghemical/ghemical/index.html
+URL:		https://www.bioinformatics.org/ghemical/ghemical/index.html
 Source0:	http://www.bioinformatics.org/ghemical/download/release%{releasedate}/lib%{name}-%{version}.tar.gz
 
 BuildRequires:	pkgconfig(gl)
