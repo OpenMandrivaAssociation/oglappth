@@ -13,6 +13,11 @@ Group:		Sciences/Chemistry
 URL:		https://www.bioinformatics.org/ghemical/ghemical/index.html
 Source0:	http://www.bioinformatics.org/ghemical/download/release%{releasedate}/lib%{name}-%{version}.tar.gz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glu)
 
